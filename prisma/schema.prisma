@@ -1,0 +1,36 @@
+// 1. Configure the Prisma Client generator
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 2. Configure the SQLite connection (Prisma 7 style)
+datasource db {
+  provider = "sqlite"
+}
+
+
+// 3. Your database models
+model Customer {
+  id       String    @id @default(uuid())
+  name     String
+  email    String    @unique
+  role     String    @default("Member")
+  status   String    @default("Active")
+  invoices Invoice[]
+}
+
+model Invoice {
+  id          String   @id @default(uuid())
+  customerId  String
+  amount      Float
+  status      String   @default("Pending") // "Paid" or "Pending"
+  date        DateTime @default(now())
+  
+  customer    Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+}
+
+model Revenue {
+  id      String @id @default(uuid())
+  month   String @unique // e.g. "Jan", "Feb"
+  amount  Int
+}

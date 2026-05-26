@@ -1,0 +1,13 @@
+diff --git a/node_modules/@auth0/nextjs-auth0/dist/server/auth-client.js b/node_modules/@auth0/nextjs-auth0/dist/server/auth-client.js
+index bfc384c..f02d683 100644
+--- a/node_modules/@auth0/nextjs-auth0/dist/server/auth-client.js
++++ b/node_modules/@auth0/nextjs-auth0/dist/server/auth-client.js
+@@ -8,7 +8,7 @@ import { NextResponse } from "next/server.js";
+ import * as jose from "jose";
+ import * as oauth from "oauth4webapi";
+ import * as client from "openid-client";
+-import packageJson from "../../package.json" with { type: "json" };
++const packageJson = { version: "4.21.0" };
+ import { AccessTokenError, AccessTokenErrorCode, AccessTokenForConnectionError, AccessTokenForConnectionErrorCode, AuthorizationCodeGrantError, AuthorizationCodeGrantRequestError, AuthorizationError, BackchannelAuthenticationError, BackchannelAuthenticationNotSupportedError, BackchannelLogoutError, ConnectAccountError, ConnectAccountErrorCodes, CustomTokenExchangeError, CustomTokenExchangeErrorCode, DiscoveryError, DPoPError, DPoPErrorCode, InvalidConfigurationError, InvalidStateError, MfaChallengeError, MfaEnrollmentError, MfaGetAuthenticatorsError, MfaNoAvailableFactorsError, MfaRequiredError, MfaVerifyError, MissingStateError, MyAccountApiError, OAuth2Error, PasswordlessStartError, PasswordlessVerifyError, SdkError } from "../errors/index.js";
+ import { IssuerValidationError, SessionDomainMismatchError } from "../errors/mcd.js";
+ import { GRANT_TYPE_CUSTOM_TOKEN_EXCHANGE, GRANT_TYPE_PASSWORDLESS_OTP, RESPONSE_TYPES, SUBJECT_TOKEN_TYPES } from "../types/index.js";
