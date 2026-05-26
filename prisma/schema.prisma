@@ -34,3 +34,10 @@ model Revenue {
   month   String @unique // e.g. "Jan", "Feb"
   amount  Int
 }
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  price       Float
+  description String?
+  createdAt   DateTime @default(now())
+}

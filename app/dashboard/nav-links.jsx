@@ -9,7 +9,8 @@ export default function NavLinks() {
     const links = [
         { name: 'Overview', href: '/dashboard' },
         { name: 'Customers', href: '/dashboard/customer' },
-        { name: 'Settings', href: '/dashboard/settings' }, // We can add this later!
+        { name: 'Settings', href: '/dashboard/settings' },
+        { name: 'Products', href: '/dashboard/product' },
     ];
 
     return (
