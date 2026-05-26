@@ -1,11 +1,11 @@
 const { PrismaClient } = require('@prisma/client');
-const { PrismaBetterSqlite3 } = require('@prisma/adapter-better-sqlite3');
+const { PrismaPg } = require('@prisma/adapter-pg');
+const { Pool } = require('pg');
 
-// Initialize the Prisma 7 driver adapter directly with the URL
-const adapter = new PrismaBetterSqlite3({
-    url: 'file:./dev.db'
-
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL
 });
+const adapter = new PrismaPg(pool);
 
 // Pass the adapter to PrismaClient
 const prisma = new PrismaClient({ adapter });
